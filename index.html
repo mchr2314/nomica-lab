@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nomica Intelligence & Systems Research Lab | Nomica Studio</title>
+  <meta name="description" content="Nomica Intelligence & Systems Research Lab conducts non-commercial research on autonomous multi-agent orchestration, deterministic software verification, and high-performance distributed networking.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090d16;
+      --card-bg: rgba(18, 24, 38, 0.7);
+      --card-border: rgba(255, 255, 255, 0.08);
+      --text: #e2e8f0;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --gradient: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding: 0 1.5rem;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    header {
+      padding: 4rem 0 2rem;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.85rem;
+      background: var(--accent-glow);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      border-radius: 9999px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent);
+    }
+    h1 {
+      font-size: 2.75rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .tagline {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      line-height: 1.6;
+    }
+    nav {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--accent); }
+    section {
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--card-border);
+    }
+    h2 {
+      font-size: 1.65rem;
+      font-weight: 600;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    h2::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 1.3rem;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 1.75rem;
+      backdrop-filter: blur(10px);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .card:hover {
+      border-color: rgba(56, 189, 248, 0.4);
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #fff;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    .tech-tag {
+      display: inline-block;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      padding: 0.2rem 0.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 4px;
+      margin-top: 1rem;
+      color: #cbd5e1;
+    }
+    .team-member {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #090d16;
+    }
+    .meta-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .meta-item {
+      padding: 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+    }
+    .meta-title {
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 0.35rem;
+    }
+    .meta-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+    footer {
+      padding: 3rem 0;
+      margin-top: auto;
+      text-align: center;
+      color: #64748b;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="badge">
+        <span class="badge-dot"></span>
+        Non-Commercial Computational Research Lab
+      </div>
+      <h1>Nomica Intelligence & Systems Lab</h1>
+      <p class="tagline">
+        Investigating deterministic agentic orchestration, formal software verification, and low-latency state synchronization across constrained and distributed compute environments.
+      </p>
+      <nav>
+        <a href="#research">Research Focus</a>
+        <a href="#projects">Active Initiatives</a>
+        <a href="#team">Team & Affiliation</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="research">
+        <h2>Research Focus Areas</h2>
+        <div class="grid">
+          <div class="card">
+            <h3>Autonomous Agent Orchestration</h3>
+            <p>
+              Investigating stateful multi-agent pipelines with grounded verification barriers, addressing non-deterministic context drift, tool invocation boundaries, and verifiable reasoning pipelines.
+            </p>
+            <span class="tech-tag">Agentic Workflows • Tool Grounding</span>
+          </div>
+          <div class="card">
+            <h3>Formal Software Verification</h3>
+            <p>
+              Developing reproducible formal specification and dynamic test harnesses to detect state inconsistencies, race conditions, and precision arithmetic edge behaviors in complex codebases.
+            </p>
+            <span class="tech-tag">Stateful Invariants • AST Analysis</span>
+          </div>
+          <div class="card">
+            <h3>Distributed Telemetry & Edge Routing</h3>
+            <p>
+              Benchmarking high-throughput distributed architectures, orbital satellite beam handovers, and bufferbloat mitigation (CAKE QoS, BBR congestion control) for deterministic communications.
+            </p>
+            <span class="tech-tag">Distributed Systems • CAKE QoS</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <h2>Active Research Initiatives & Artifacts</h2>
+        <ul class="meta-list">
+          <li class="meta-item">
+            <div class="meta-title">ROCm LLM Micro-Benchmarking Suite</div>
+            <div class="meta-desc">
+              Open-source evaluation and LoRA parameter-efficient fine-tuning toolkit exploring inference throughput and quantization stability on heterogeneous accelerator architectures. Available on GitHub under <a href="https://github.com/mchr2314/rocm-llm-lab" target="_blank" style="color:var(--accent);">mchr2314/rocm-llm-lab</a>.
+            </div>
+          </li>
+          <li class="meta-item">
+            <div class="meta-title">Deterministic Multi-Agent State Synchronization</div>
+            <div class="meta-desc">
+              Preprint and benchmark evaluating invariant retention and tool verification fidelity in multi-model agent collaboration pipelines using frontier LLM reasoning frameworks.
+            </div>
+          </li>
+          <li class="meta-item">
+            <div class="meta-title">LEO Satellite Handover Telemetry & DNS Optimization</div>
+            <div class="meta-desc">
+              Empirical study on orbital handover packet loss absorption through adaptive DNS retransmit caching and active queue management.
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="team">
+        <h2>Researchers & Affiliation</h2>
+        <div class="card team-member">
+          <div class="avatar">KR</div>
+          <div>
+            <h3 style="margin-bottom:0.25rem;">Kiki Rizki Zulfikar</h3>
+            <p style="color:var(--accent); font-size:0.9rem; margin-bottom:0.5rem;">Principal Investigator / Research Engineer</p>
+            <p style="font-size:0.875rem;">
+              Affiliation: <strong>Nomica Studio</strong> • Focus: Multi-Agent Systems, Systems Security, Distributed Networking
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <h2>Institutional Contact</h2>
+        <div class="card">
+          <p style="margin-bottom:1rem;">
+            For academic inquiries, non-commercial research collaborations, or reproduction datasets:
+          </p>
+          <p>
+            <strong>Lab Email:</strong> <a href="mailto:kiki@inces.biz.id" style="color:var(--accent);">kiki@inces.biz.id</a> / <a href="mailto:founder@inces.biz.id" style="color:var(--accent);">founder@inces.biz.id</a><br>
+            <strong>Organization:</strong> Nomica Studio Research Lab<br>
+            <strong>Primary Domain:</strong> <a href="https://inces.biz.id" style="color:var(--accent);">https://inces.biz.id</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Nomica Studio &bull; Nomica Intelligence & Systems Research Lab. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
